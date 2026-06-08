@@ -726,25 +726,27 @@ body.en li[data-en] { display: list-item !important; }
       </div>
     </div>
     <div>
-      <div class="contact-form" id="contactForm">
+      <form class="contact-form" id="contactForm" name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="contact">
+      <p style="display:none"><input name="bot-field"></p>
         <div class="form-group">
           <label class="form-label" data-nl>Naam</label>
           <label class="form-label" data-en>Name</label>
-          <input type="text" class="form-input" placeholder="Naam / Name">
+          <input type="text" name="naam" class="form-input" placeholder="Naam / Name" required>
         </div>
         <div class="form-group">
           <label class="form-label">Email</label>
-          <input type="email" class="form-input" placeholder="email@bedrijf.nl">
+          <input type="email" name="email" class="form-input" placeholder="email@bedrijf.nl" required>
         </div>
         <div class="form-group">
           <label class="form-label" data-nl>Bedrijf</label>
           <label class="form-label" data-en>Company</label>
-          <input type="text" class="form-input" placeholder="Bedrijfsnaam / Company name">
+          <input type="text" name="bedrijf" class="form-input" placeholder="Bedrijfsnaam / Company name">
         </div>
         <div class="form-group">
           <label class="form-label" data-nl>Ik ben een...</label>
           <label class="form-label" data-en>I am a...</label>
-          <select class="form-select">
+          <select name="type" class="form-select">
             <option data-nl>Kies een categorie</option>
             <option data-en>Select a category</option>
             <option data-nl>Groeiend modemerk</option>
@@ -760,13 +762,13 @@ body.en li[data-en] { display: list-item !important; }
         <div class="form-group">
           <label class="form-label" data-nl>Vertel ons over jouw project</label>
           <label class="form-label" data-en>Tell us about your project</label>
-          <textarea class="form-textarea" placeholder="Wat wil je laten produceren? Aantallen? Tijdlijn? / What do you want produced? Quantities? Timeline?"></textarea>
+          <textarea name="bericht" class="form-textarea" required placeholder="Wat wil je laten produceren? Aantallen? Tijdlijn? / What do you want produced? Quantities? Timeline?"></textarea>
         </div>
-        <button class="btn-primary" style="width:100%;justify-content:center" onclick="submitForm()" data-nl>Verstuur bericht</button>
-        <button class="btn-primary" style="width:100%;justify-content:center" onclick="submitForm()" data-en>Send message</button>
+        <button type="submit" class="btn-primary" style="width:100%;justify-content:center" data-nl>Verstuur bericht</button>
+        <button type="submit" class="btn-primary" style="width:100%;justify-content:center" data-en>Send message</button>
         <p style="font-size:12px;color:var(--muted);text-align:center;" data-nl>We reageren binnen één werkdag</p>
         <p style="font-size:12px;color:var(--muted);text-align:center;" data-en>We respond within one business day</p>
-      </div>
+      </form>
       <div id="formSuccess" style="display:none;padding:40px;text-align:center;background:var(--white);border:1px solid var(--border)">
         <div style="font-size:40px;margin-bottom:16px">&#10003;</div>
         <h3 style="font-family:'Cormorant Garamond',serif;font-size:24px;margin-bottom:12px" data-nl>Bericht ontvangen!</h3>
