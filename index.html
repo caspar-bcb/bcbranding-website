@@ -32,13 +32,16 @@ body { font-family: 'DM Sans', sans-serif; background: var(--paper); color: var(
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
   display: flex; align-items: center; justify-content: space-between;
-  padding: 20px var(--pad);
+  padding: 16px clamp(16px, 4vw, 60px);
   background: rgba(245,243,239,0.96); backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
+  gap: 12px;
+  overflow: hidden;
 }
-.nav-logo { background: none; border: none; cursor: pointer; padding: 0; display: flex; align-items: center; }
+.nav-logo img { height: clamp(28px, 5vw, 36px); width: auto; object-fit: contain; max-width: 160px; }
+.nav-logo { background: none; border: none; cursor: pointer; padding: 0; display: flex; align-items: center; flex-shrink: 0; min-width: 0; }
 .nav-logo img { height: 36px; width: auto; object-fit: contain; }
-.nav-right { display: flex; align-items: center; gap: 8px; }
+.nav-right { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
 .nav-links { display: none; gap: 32px; list-style: none; }
 @media (min-width: 768px) { .nav-links { display: flex; } .hamburger { display: none; } }
 .nav-links button {
@@ -48,8 +51,8 @@ nav {
   transition: color 0.2s;
 }
 .nav-links button:hover { color: var(--ink); }
-.lang-toggle { display: flex; align-items: center; gap: 4px; background: var(--ink); border-radius: 20px; padding: 4px; cursor: pointer; }
-.lang-btn { font-size: 11px; font-weight: 500; letter-spacing: 0.08em; color: var(--muted); padding: 4px 10px; border-radius: 16px; background: transparent; border: none; cursor: pointer; transition: all 0.2s; }
+.lang-toggle { display: flex; align-items: center; gap: 2px; background: var(--ink); border-radius: 20px; padding: 3px; cursor: pointer; flex-shrink: 0; }
+.lang-btn { font-size: 10px; font-weight: 500; letter-spacing: 0.05em; color: var(--muted); padding: 4px 8px; border-radius: 16px; background: transparent; border: none; cursor: pointer; transition: all 0.2s; }
 .lang-btn.active { background: var(--accent); color: var(--ink); }
 .hamburger { display: flex; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; background: none; border: none; }
 .hamburger span { display: block; width: 22px; height: 1.5px; background: var(--ink); }
